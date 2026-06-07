@@ -8,3 +8,46 @@
 
  ✓ Starting...
  ✓ Ready in 1715ms
+ ○ Compiling / ...
+ ✓ Compiled / in 4.2s (1489 modules)
+ GET / 200 in 4716ms
+ ✓ Compiled in 615ms (741 modules)
+ ✓ Compiled /favicon.ico in 274ms (780 modules)
+ GET /favicon.ico 200 in 360ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 933ms (1510 modules)
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 1145ms
+ GET /_next/static/chunks/app/LayoutGroupContext.mjs.map 404 in 657ms
+ GET / 200 in 160ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 37ms
+ GET /_next/static/chunks/app/LayoutGroupContext.mjs.map 404 in 61ms
+ GET /favicon.ico 200 in 28ms
+ GET / 200 in 68ms
+ GET /favicon.ico 200 in 9ms
+ GET / 200 in 91ms
+ GET /favicon.ico 200 in 9ms
+ GET / 200 in 64ms
+ GET /favicon.ico 200 in 10ms
+ GET / 200 in 47ms
+ GET /favicon.ico 200 in 8ms
+ ✓ Compiled in 372ms (741 modules)
+ ✓ Compiled in 176ms (741 modules)
+ GET /favicon.ico 200 in 15ms
+ GET /favicon.ico 200 in 9ms
+ ✓ Compiled in 785ms (1521 modules)
+ GET / 200 in 210ms
+ GET /favicon.ico 200 in 21ms
+ ✓ Compiled in 488ms (741 modules)
+ GET /favicon.ico 200 in 17ms
+ GET /favicon.ico 200 in 8ms
+ ✓ Compiled in 863ms (1515 modules)
+ ✓ Compiled in 332ms (738 modules)
+ ✓ Compiled in 460ms (1475 modules)
+ ✓ Compiled in 1086ms (1475 modules)
+ ✓ Compiled in 137ms (734 modules)
+ ✓ Compiled in 189ms (734 modules)
+ ✓ Compiled in 535ms (1461 modules)
+ ✓ Compiled in 171ms (734 modules)
+ ✓ Compiled in 377ms (1461 modules)
+ ✓ Compiled in 138ms (734 modules)
+ ✓ Compiled in 179ms (734 modules)

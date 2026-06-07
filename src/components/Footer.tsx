@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
+
 // ─── Social icon SVGs ───────────────────────────────────────────
 function InstagramIcon() {
   return (
