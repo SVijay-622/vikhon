@@ -15,7 +15,7 @@ const PROJECTS = [
     description:
       "Dark, editorial designer portfolio with massive typographic hero, scrolling marquee, and a service showcase built to make the designer's brand unforgettable.",
     stack: ["HTML", "CSS", "JavaScript", "Netlify"],
-    image: "/portfolio/ashwin-sv.jpg",
+    image: "/portfolio/ashwin-sv.png",
     gradient: "from-zinc-900 via-zinc-800 to-neutral-900",
     accent: "bg-emerald-600",
     letter: "A",
@@ -30,7 +30,7 @@ const PROJECTS = [
     description:
       "Agency website for a 6-person design & development studio — bold purple branding, stats showcase (100+ projects, 50+ clients), portfolio grid, and testimonials.",
     stack: ["Web Design", "Development", "Branding"],
-    image: "/portfolio/twelvea.jpg",
+    image: "/portfolio/twelvea.png",
     gradient: "from-slate-900 via-blue-950 to-slate-900",
     accent: "bg-violet-600",
     letter: "T",
