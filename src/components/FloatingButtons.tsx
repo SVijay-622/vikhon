@@ -13,41 +13,55 @@ function WhatsAppIcon() {
 
 export default function FloatingButtons() {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [showWA, setShowWA] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setShowScrollTop(window.scrollY > 500);
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    // WhatsApp button appears after 2 seconds
+    const waTimer = setTimeout(() => setShowWA(true), 2000);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(waTimer);
+    };
   }, []);
 
   return (
-    <div className="fixed bottom-6 z-50 flex flex-col gap-3 items-end" style={{ right: "1.5rem" }}>
-      {/* WhatsApp */}
-      <motion.a
-        href="https://wa.me/918056058965"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ type: "spring", delay: 1 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        className="w-13 h-13 rounded-full flex items-center justify-center text-white shadow-lg relative"
-        style={{
-          background: "#25D366",
-          width: "52px",
-          height: "52px",
-          boxShadow: "0 4px 20px rgba(37,211,102,0.4)",
-          cursor: "none",
-        }}
-      >
-        {/* Pulse ring */}
-        <span className="absolute inset-0 rounded-full animate-ping opacity-20 bg-[#25D366]" />
-        <WhatsAppIcon />
-      </motion.a>
+    <>
+      {/* WhatsApp — fixed bottom-right */}
+      <AnimatePresence>
+        {showWA && (
+          <motion.a
+            href="https://wa.me/918056058965"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="fixed bottom-6 right-6 z-50 flex items-center justify-center text-white"
+            style={{
+              width: "48px",
+              height: "48px",
+              borderRadius: "50%",
+              background: "#25D366",
+              boxShadow: "0 4px 20px rgba(37,211,102,0.3)",
+              cursor: "none",
+            }}
+          >
+            {/* Pulse ring */}
+            <span className="absolute inset-0 rounded-full animate-ping opacity-20 bg-[#25D366]" />
+            <WhatsAppIcon />
+          </motion.a>
+        )}
+      </AnimatePresence>
 
-      {/* Scroll to top */}
+      {/* Scroll to top — fixed bottom-left */}
       <AnimatePresence>
         {showScrollTop && (
           <motion.button
@@ -59,19 +73,28 @@ export default function FloatingButtons() {
             whileTap={{ scale: 0.95 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Scroll to top"
-            className="w-12 h-12 rounded-full flex items-center justify-center text-white transition-all"
+            className="fixed bottom-6 left-6 z-50 flex items-center justify-center text-zinc-400 transition-colors hover:text-indigo-400"
             style={{
-              background: "linear-gradient(135deg, #6366F1, #A855F7)",
-              boxShadow: "0 4px 20px rgba(99,102,241,0.5)",
-              width: "48px",
-              height: "48px",
+              width: "40px",
+              height: "40px",
+              borderRadius: "50%",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
               cursor: "none",
             }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(99,102,241,0.2)";
+              e.currentTarget.style.borderColor = "rgba(99,102,241,0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+            }}
           >
-            <ArrowUp size={18} />
+            <ArrowUp size={16} />
           </motion.button>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 }
