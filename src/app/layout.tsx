@@ -41,6 +41,9 @@ export const metadata: Metadata = {
     "VIKHON",
   ],
   metadataBase: new URL("https://vikhon.com"),
+  alternates: {
+    canonical: "https://vikhon.com",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -49,7 +52,6 @@ export const metadata: Metadata = {
     title: "VIKHON — Premium Digital Agency | Where Service Meets The Extraordinary",
     description:
       "Premium digital agency in Chennai, India. Web Development, UI/UX Design, Mobile Apps, Graphic Design, and Digital Marketing.",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "VIKHON Agency" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -62,6 +64,42 @@ export const metadata: Metadata = {
   },
 };
 
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "VIKHON",
+  url: "https://vikhon.com",
+  logo: "https://vikhon.com/favicon.ico",
+  description:
+    "Premium digital agency in Chennai, India offering Web Development, UI/UX Design, Mobile App Development, Graphic Design, and Digital Marketing.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Chennai",
+    addressRegion: "Tamil Nadu",
+    addressCountry: "IN",
+  },
+  email: "hello@vikhon.com",
+  sameAs: [
+    "https://instagram.com/vikhon.studio",
+    "https://linkedin.com/company/vikhon",
+    "https://github.com/vikhon",
+    "https://fiverr.com/vijayandiran",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Digital Services",
+    itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Web Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "UI/UX Design" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Mobile App Development" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Graphic Design" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Digital Marketing" } },
+    ],
+  },
+  areaServed: "Worldwide",
+  priceRange: "$$",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
@@ -72,6 +110,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className="antialiased bg-[#0A0A0A] text-white"
         style={{ fontFamily: "var(--font-plus-jakarta), var(--font-inter), sans-serif" }}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        />
         {children}
       </body>
     </html>
