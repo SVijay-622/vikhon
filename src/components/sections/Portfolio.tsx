@@ -6,8 +6,25 @@ import { ArrowUpRight } from "lucide-react";
 const PROJECTS = [
   {
     category: "Web",
+    badge: "LIVE PROJECT",
+    live: true,
+    url: "https://ashwinsv.netlify.app",
+    title: "Ashwin SV — Portfolio",
+    client: "Ashwin SV · Graphic Designer",
+    description:
+      "Minimalist designer portfolio featuring a scrolling marquee, six-service showcase, and integrated contact form. Built to let the work speak before words do.",
+    stack: ["HTML", "CSS", "JavaScript", "Netlify"],
+    gradient: "from-zinc-900 via-zinc-800 to-neutral-900",
+    accent: "bg-emerald-600",
+    letter: "A",
+  },
+  {
+    category: "Web",
     badge: "DEMO PROJECT",
+    live: false,
+    url: null,
     title: "Restaurant Website",
+    client: null,
     description:
       "Modern restaurant site with online menu, gallery, and reservation system.",
     stack: ["Next.js", "Tailwind", "Framer Motion"],
@@ -18,7 +35,10 @@ const PROJECTS = [
   {
     category: "Design",
     badge: "DEMO PROJECT",
+    live: false,
+    url: null,
     title: "Brand Identity Kit",
+    client: null,
     description:
       "Complete brand system with logo, colors, typography, and guidelines for a modern startup.",
     stack: ["Figma", "Illustrator", "InDesign"],
@@ -26,20 +46,9 @@ const PROJECTS = [
     accent: "bg-purple-500",
     letter: "B",
   },
-  {
-    category: "Apps",
-    badge: "DEMO PROJECT",
-    title: "Fitness Tracker App",
-    description:
-      "Cross-platform mobile app with workout tracking and progress analytics.",
-    stack: ["React Native", "Firebase", "Expo"],
-    gradient: "from-violet-950 via-purple-900 to-fuchsia-900",
-    accent: "bg-violet-500",
-    letter: "F",
-  },
 ];
 
-const FILTERS = ["All", "Web", "Design", "Apps"];
+const FILTERS = ["All", "Web", "Design"];
 
 export default function Portfolio() {
   const [filter, setFilter] = useState("All");
@@ -93,69 +102,95 @@ export default function Portfolio() {
         {/* Project cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
-            {filtered.map((project, i) => (
-              <motion.div
-                key={project.title}
-                layout
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group card-dark overflow-hidden"
-              >
-                {/* Image placeholder */}
-                <div
-                  className={`relative h-56 bg-gradient-to-br ${project.gradient} overflow-hidden`}
-                >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span
-                      className="font-black text-white/10 select-none pointer-events-none"
-                      style={{ fontSize: "9rem", lineHeight: 1 }}
-                    >
-                      {project.letter}
-                    </span>
-                  </div>
-                  {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-indigo-600/0 group-hover:bg-indigo-600/20 transition-all duration-500 flex items-center justify-center">
-                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                      <span className="flex items-center gap-2 text-white font-semibold text-sm bg-indigo-600/80 backdrop-blur-sm px-4 py-2 rounded-full">
-                        View Project <ArrowUpRight size={14} />
-                      </span>
-                    </div>
-                  </div>
-                  {/* Badge */}
-                  <div className="absolute top-4 left-4 flex items-center gap-2">
-                    <span className="text-[10px] bg-black/60 backdrop-blur-sm text-zinc-300 border border-zinc-700/50 font-medium px-3 py-1 rounded-full tracking-wider">
-                      {project.badge}
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className={`text-[10px] ${project.accent} text-white font-semibold px-3 py-1 rounded-full tracking-wider`}>
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
+            {filtered.map((project, i) => {
+              const CardTag = project.live ? "a" : "div";
+              const liveProps = project.live
+                ? { href: project.url!, target: "_blank", rel: "noopener noreferrer" }
+                : {};
 
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors duration-200">
-                    {project.title}
-                  </h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-[11px] text-indigo-400/70 bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-0.5 rounded-md"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+              return (
+                <motion.div
+                  key={project.title}
+                  layout
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <CardTag
+                    {...liveProps}
+                    className="group card-dark overflow-hidden block"
+                    style={{ cursor: "none", textDecoration: "none" }}
+                  >
+                    {/* Thumbnail */}
+                    <div className={`relative h-56 bg-gradient-to-br ${project.gradient} overflow-hidden`}>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span
+                          className="font-black text-white/10 select-none pointer-events-none"
+                          style={{ fontSize: "9rem", lineHeight: 1 }}
+                        >
+                          {project.letter}
+                        </span>
+                      </div>
+
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-indigo-600/0 group-hover:bg-indigo-600/20 transition-all duration-500 flex items-center justify-center">
+                        <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                          <span className="flex items-center gap-2 text-white font-semibold text-sm bg-indigo-600/80 backdrop-blur-sm px-4 py-2 rounded-full">
+                            {project.live ? "Visit Site" : "View Project"}{" "}
+                            <ArrowUpRight size={14} />
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Live / Demo badge */}
+                      <div className="absolute top-4 left-4">
+                        <span
+                          className={`text-[10px] backdrop-blur-sm font-medium px-3 py-1 rounded-full tracking-wider border ${
+                            project.live
+                              ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+                              : "bg-black/60 text-zinc-300 border-zinc-700/50"
+                          }`}
+                        >
+                          {project.badge}
+                        </span>
+                      </div>
+
+                      {/* Category pill */}
+                      <div className="absolute top-4 right-4">
+                        <span className={`text-[10px] ${project.accent} text-white font-semibold px-3 py-1 rounded-full tracking-wider`}>
+                          {project.category}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="p-6">
+                      {project.client && (
+                        <p className="text-[11px] text-emerald-500 font-mono mb-1 tracking-wide">
+                          {project.client}
+                        </p>
+                      )}
+                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors duration-200">
+                        {project.title}
+                      </h3>
+                      <p className="text-zinc-500 text-sm leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.stack.map((tech) => (
+                          <span
+                            key={tech}
+                            className="text-[11px] text-indigo-400/70 bg-indigo-500/10 border border-indigo-500/20 px-2.5 py-0.5 rounded-md"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </CardTag>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </div>
       </div>
