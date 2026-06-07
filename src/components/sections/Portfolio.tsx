@@ -20,6 +20,20 @@ const PROJECTS = [
   },
   {
     category: "Web",
+    badge: "LIVE PROJECT",
+    live: true,
+    url: "https://www.twelvea.in/",
+    title: "TwelveA Code and Design",
+    client: "TwelveA · Design & Development Agency",
+    description:
+      "Professional agency website for a design and development studio — clean branding, service showcase, and a portfolio-forward layout that converts visitors into clients.",
+    stack: ["Web Design", "Development", "Branding"],
+    gradient: "from-slate-900 via-blue-950 to-slate-900",
+    accent: "bg-blue-600",
+    letter: "T",
+  },
+  {
+    category: "Web",
     badge: "DEMO PROJECT",
     live: false,
     url: null,
@@ -100,7 +114,7 @@ export default function Portfolio() {
         </div>
 
         {/* Project cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => {
               const CardTag = project.live ? "a" : "div";
