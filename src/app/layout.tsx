@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "VIKHON — Premium Digital Agency | Where Service Meets The Extraordinary",
+  title: "VIKHON — Premium Digital Agency | Chennai, India",
   description:
     "Premium digital agency in Chennai, India. Web Development, UI/UX Design, Mobile Apps, Graphic Design, and Digital Marketing. World-class quality at startup-friendly prices.",
   keywords: [
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://vikhon.com",
     siteName: "VIKHON",
-    title: "VIKHON — Premium Digital Agency | Where Service Meets The Extraordinary",
+    title: "VIKHON — Premium Digital Agency | Chennai, India",
     description:
       "Premium digital agency in Chennai, India. Web Development, UI/UX Design, Mobile Apps, Graphic Design, and Digital Marketing.",
   },
