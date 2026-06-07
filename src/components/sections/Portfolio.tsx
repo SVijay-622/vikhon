@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 const PROJECTS = [
   {
@@ -12,8 +13,9 @@ const PROJECTS = [
     title: "Ashwin SV — Portfolio",
     client: "Ashwin SV · Graphic Designer",
     description:
-      "Minimalist designer portfolio featuring a scrolling marquee, six-service showcase, and integrated contact form. Built to let the work speak before words do.",
+      "Dark, editorial designer portfolio with massive typographic hero, scrolling marquee, and a service showcase built to make the designer's brand unforgettable.",
     stack: ["HTML", "CSS", "JavaScript", "Netlify"],
+    image: "/portfolio/ashwin-sv.jpg",
     gradient: "from-zinc-900 via-zinc-800 to-neutral-900",
     accent: "bg-emerald-600",
     letter: "A",
@@ -26,10 +28,11 @@ const PROJECTS = [
     title: "TwelveA Code and Design",
     client: "TwelveA · Design & Development Agency",
     description:
-      "Professional agency website for a design and development studio — clean branding, service showcase, and a portfolio-forward layout that converts visitors into clients.",
+      "Agency website for a 6-person design & development studio — bold purple branding, stats showcase (100+ projects, 50+ clients), portfolio grid, and testimonials.",
     stack: ["Web Design", "Development", "Branding"],
+    image: "/portfolio/twelvea.jpg",
     gradient: "from-slate-900 via-blue-950 to-slate-900",
-    accent: "bg-blue-600",
+    accent: "bg-violet-600",
     letter: "T",
   },
   {
@@ -42,6 +45,7 @@ const PROJECTS = [
     description:
       "Modern restaurant site with online menu, gallery, and reservation system.",
     stack: ["Next.js", "Tailwind", "Framer Motion"],
+    image: null,
     gradient: "from-indigo-950 via-indigo-900 to-purple-900",
     accent: "bg-indigo-500",
     letter: "R",
@@ -56,6 +60,7 @@ const PROJECTS = [
     description:
       "Complete brand system with logo, colors, typography, and guidelines for a modern startup.",
     stack: ["Figma", "Illustrator", "InDesign"],
+    image: null,
     gradient: "from-purple-950 via-violet-900 to-indigo-900",
     accent: "bg-purple-500",
     letter: "B",
@@ -84,15 +89,13 @@ export default function Portfolio() {
           <p className="text-indigo-400 text-[11px] tracking-[0.5em] uppercase font-mono mb-4">
             02 / OUR WORK
           </p>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
-            <h2
-              className="font-black leading-[1.05] tracking-tight"
-              style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}
-            >
-              <span className="gradient-text">Built to</span>{" "}
-              <span className="indigo-text">impress</span>
-            </h2>
-          </div>
+          <h2
+            className="font-black leading-[1.05] tracking-tight"
+            style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)" }}
+          >
+            <span className="gradient-text">Built to</span>{" "}
+            <span className="indigo-text">impress</span>
+          </h2>
         </motion.div>
 
         {/* Filter tabs */}
@@ -137,20 +140,39 @@ export default function Portfolio() {
                     style={{ cursor: "none", textDecoration: "none" }}
                   >
                     {/* Thumbnail */}
-                    <div className={`relative h-56 bg-gradient-to-br ${project.gradient} overflow-hidden`}>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span
-                          className="font-black text-white/10 select-none pointer-events-none"
-                          style={{ fontSize: "9rem", lineHeight: 1 }}
-                        >
-                          {project.letter}
-                        </span>
-                      </div>
+                    <div className={`relative h-64 bg-gradient-to-br ${project.gradient} overflow-hidden`}>
+                      {/* Real screenshot */}
+                      {project.image && (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                      )}
+
+                      {/* Fallback letter (shown when no image) */}
+                      {!project.image && (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span
+                            className="font-black text-white/10 select-none pointer-events-none"
+                            style={{ fontSize: "9rem", lineHeight: 1 }}
+                          >
+                            {project.letter}
+                          </span>
+                        </div>
+                      )}
+
+                      {/* Dark gradient overlay at bottom (for image cards) */}
+                      {project.image && (
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      )}
 
                       {/* Hover overlay */}
-                      <div className="absolute inset-0 bg-indigo-600/0 group-hover:bg-indigo-600/20 transition-all duration-500 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-indigo-600/0 group-hover:bg-indigo-600/25 transition-all duration-500 flex items-center justify-center">
                         <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                          <span className="flex items-center gap-2 text-white font-semibold text-sm bg-indigo-600/80 backdrop-blur-sm px-4 py-2 rounded-full">
+                          <span className="flex items-center gap-2 text-white font-semibold text-sm bg-indigo-600/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
                             {project.live ? "Visit Site" : "View Project"}{" "}
                             <ArrowUpRight size={14} />
                           </span>
@@ -172,12 +194,15 @@ export default function Portfolio() {
 
                       {/* Category pill */}
                       <div className="absolute top-4 right-4">
-                        <span className={`text-[10px] ${project.accent} text-white font-semibold px-3 py-1 rounded-full tracking-wider`}>
+                        <span
+                          className={`text-[10px] ${project.accent} text-white font-semibold px-3 py-1 rounded-full tracking-wider`}
+                        >
                           {project.category}
                         </span>
                       </div>
                     </div>
 
+                    {/* Card body */}
                     <div className="p-6">
                       {project.client && (
                         <p className="text-[11px] text-emerald-500 font-mono mb-1 tracking-wide">
