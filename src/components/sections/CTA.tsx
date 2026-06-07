@@ -83,6 +83,11 @@ const WORDS = [["We", "work", "with"], ["clients", "worldwide."]];
 export default function CTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    setIsDesktop(window.matchMedia("(min-width: 768px)").matches);
+  }, []);
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -244,7 +249,27 @@ export default function CTA() {
           />
 
           <div className="w-full h-full">
-            <World globeConfig={GLOBE_CONFIG} data={ARCS} />
+            {isDesktop ? (
+              <World globeConfig={GLOBE_CONFIG} data={ARCS} />
+            ) : (
+              /* Lightweight placeholder on mobile — no WebGL */
+              <div
+                className="w-full h-full flex items-center justify-center"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%)",
+                }}
+              >
+                <div
+                  className="w-48 h-48 rounded-full border border-indigo-500/20"
+                  style={{
+                    background:
+                      "radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)",
+                    boxShadow: "0 0 60px rgba(99,102,241,0.15)",
+                  }}
+                />
+              </div>
+            )}
           </div>
         </motion.div>
       </div>

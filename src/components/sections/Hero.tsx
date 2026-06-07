@@ -12,6 +12,11 @@ export default function Hero() {
   const [typed, setTyped] = useState("");
   const [deleting, setDeleting] = useState(false);
   const [cursor, setCursor] = useState(true);
+  // Skip heavy animations on touch/mobile devices
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    setIsDesktop(window.matchMedia("(min-width: 768px)").matches);
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setCursor((c) => !c), 530);
@@ -43,12 +48,15 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0A0A0A]"
     >
-      <Spotlight
-        className="-top-40 left-0 md:left-60 md:-top-20"
-        fill="#6366F1"
-      />
-
-      <BackgroundBeams className="opacity-40" />
+      {isDesktop && (
+        <>
+          <Spotlight
+            className="-top-40 left-0 md:left-60 md:-top-20"
+            fill="#6366F1"
+          />
+          <BackgroundBeams className="opacity-40" />
+        </>
+      )}
 
       {/* Radial gradient overlay */}
       <div className="absolute inset-0 bg-gradient-radial from-indigo-950/20 via-transparent to-transparent pointer-events-none" />
