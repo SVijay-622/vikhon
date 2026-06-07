@@ -31,7 +31,7 @@ const STEPS = [
 
 export default function Process() {
   return (
-    <section className="py-32 px-4 bg-[#0A0A0A]">
+    <section className="py-16 md:py-32 px-4 bg-[#0A0A0A]">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <motion.div
@@ -39,7 +39,7 @@ export default function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7 }}
-          className="mb-20 text-center"
+          className="mb-12 md:mb-20 text-center"
         >
           <p className="text-indigo-400 text-[11px] tracking-[0.5em] uppercase font-mono mb-4">
             03 / PROCESS
@@ -55,7 +55,7 @@ export default function Process() {
 
         {/* Tracing beam with steps */}
         <TracingBeam className="px-6">
-          <div className="flex flex-col gap-16 pl-8">
+          <div className="flex flex-col gap-10 md:gap-16 pl-2 md:pl-8">
             {STEPS.map((step, i) => (
               <motion.div
                 key={step.n}
@@ -65,7 +65,7 @@ export default function Process() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="group"
               >
-                <div className="flex items-start gap-6">
+                <div className="flex items-start gap-4 md:gap-6">
                   <div className="flex-shrink-0">
                     <span
                       className="font-black indigo-text leading-none"

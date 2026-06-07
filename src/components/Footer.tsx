@@ -35,7 +35,7 @@ function GitHubIcon() {
 function FiverrIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M16.25 16.25a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zm-6.5-7.75a3.5 3.5 0 013.5-3.5h.5V1H13a7 7 0 00-7 7v.5H4v3h2v8.5h3V11.5h3v-3h-3V8c0-.69.56-1.25 1.25-1.25h.75V5h-.5a1 1 0 010 0z" />
+      <path d="M23.004 15.588a.995.995 0 1 0 .002-1.99.995.995 0 0 0-.002 1.99zm-1.72 0h-.88v-4.347h.88v4.347zm-2.892-1.661c0 .546-.44.99-.985.99a.99.99 0 0 1 0-1.98c.545 0 .985.444.985.99zM16.6 13.93a1.864 1.864 0 0 0-1.865-1.865 1.864 1.864 0 0 0 0 3.73 1.864 1.864 0 0 0 1.865-1.865zM11.37 0C5.085 0 0 5.085 0 11.37c0 6.286 5.085 11.37 11.37 11.37 6.286 0 11.37-5.084 11.37-11.37C22.74 5.085 17.656 0 11.37 0zm4.691 14.5h-.88v-.428a1.86 1.86 0 0 1-1.35.577 1.864 1.864 0 0 1 0-3.728 1.86 1.86 0 0 1 1.35.578v-.428h.88V14.5zm1.926 0h-.88v-4.347h.88V14.5zm1.72-3.357a.995.995 0 1 0 .002 1.99.995.995 0 0 0-.002-1.99z"/>
     </svg>
   );
 }
@@ -86,7 +86,7 @@ export default function Footer() {
       ═══════════════════════════════════════════════════════ */}
       <section
         ref={ctaRef}
-        className="bg-[#0A0A0A] py-32 px-6"
+        className="bg-[#0A0A0A] py-16 md:py-32 px-6"
         style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
       >
         <div className="max-w-4xl mx-auto text-center">
@@ -103,7 +103,7 @@ export default function Footer() {
           {/* Word-by-word heading */}
           <h2
             className="font-black text-white leading-tight mb-8"
-            style={{ fontSize: "clamp(2.6rem, 6.5vw, 5.5rem)" }}
+            style={{ fontSize: "clamp(2rem, 6.5vw, 5.5rem)" }}
           >
             {/* Line 1 */}
             <span className="block">
@@ -191,7 +191,7 @@ export default function Footer() {
           backgroundColor: "#050505",
           borderTop: "1px solid rgba(255,255,255,0.04)",
         }}
-        className="py-12 px-8"
+        className="py-10 md:py-12 px-4 md:px-8"
       >
         <div className="max-w-7xl mx-auto">
           {/* Row 1 — 4 columns */}

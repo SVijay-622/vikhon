@@ -35,13 +35,13 @@ export default function About() {
       </LampContainer>
 
       {/* Brand story */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 pb-20 text-center -mt-32">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 pb-12 md:pb-20 text-center -mt-16 sm:-mt-24 md:-mt-32">
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-zinc-400 text-lg leading-relaxed mb-16"
+          className="text-zinc-400 text-base md:text-lg leading-relaxed mb-10 md:mb-16"
         >
           <strong className="text-indigo-300 font-semibold">VIKHON</strong> combines{" "}
           <em>Vijay</em> — meaning <strong className="text-white">Victory</strong> in Tamil — with{" "}
@@ -56,7 +56,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="card-dark p-8 mb-16 max-w-sm mx-auto"
+          className="card-dark p-6 md:p-8 mb-10 md:mb-16 max-w-sm mx-auto"
         >
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 flex items-center justify-center text-2xl font-black text-white mx-auto mb-4">
             V

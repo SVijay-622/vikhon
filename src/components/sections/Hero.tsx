@@ -59,10 +59,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="inline-flex items-center gap-2 border border-indigo-500/30 bg-indigo-500/5 px-5 py-2 rounded-full mb-10 backdrop-blur-sm"
+          className="inline-flex items-center gap-2 border border-indigo-500/30 bg-indigo-500/5 px-4 sm:px-5 py-2 rounded-full mb-8 md:mb-10 backdrop-blur-sm"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-          <span className="text-[11px] tracking-[0.45em] text-indigo-300 uppercase font-medium">
+          <span className="text-[10px] sm:text-[11px] tracking-[0.25em] sm:tracking-[0.45em] text-indigo-300 uppercase font-medium">
             Premium Digital Agency
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />

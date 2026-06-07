@@ -76,7 +76,7 @@ export default function Portfolio() {
     filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
 
   return (
-    <section id="portfolio" className="py-32 px-4 bg-[#0A0A0A]">
+    <section id="portfolio" className="py-16 md:py-32 px-4 bg-[#0A0A0A]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

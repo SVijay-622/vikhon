@@ -50,7 +50,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 px-4 bg-[#0A0A0A] relative">
+    <section id="contact" className="py-16 md:py-32 px-4 bg-[#0A0A0A] relative">
       {/* Top glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/3 h-px bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent" />
 
@@ -142,7 +142,7 @@ export default function Contact() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8 }}
           >
-            <div className="card-dark p-8 relative overflow-hidden">
+            <div className="card-dark p-5 sm:p-8 relative overflow-hidden">
               {/* Corner glow */}
               <div className="absolute -top-20 -right-20 w-40 h-40 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none" />
 

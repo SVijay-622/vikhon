@@ -49,7 +49,6 @@ const ARCS: Position[] = [
   { order: 10, startLat: 13.08,   startLng: 80.27,   endLat: 19.07,   endLng: 72.87,   arcAlt: 0.1, color: c() },
   { order: 11, startLat: 13.08,   startLng: 80.27,   endLat: 12.97,   endLng: 77.59,   arcAlt: 0.1, color: c() },
   { order: 12, startLat: 13.08,   startLng: 80.27,   endLat: 28.61,   endLng: 77.20,   arcAlt: 0.2, color: c() },
-  // Extra cross-city arcs for a busier globe
   { order: 2,  startLat: 51.50,   startLng: -0.12,   endLat: 40.71,   endLng: -74.00,  arcAlt: 0.2, color: c() },
   { order: 3,  startLat: 35.68,   startLng: 139.69,  endLat: 1.35,    endLng: 103.81,  arcAlt: 0.2, color: c() },
   { order: 4,  startLat: 25.20,   startLng: 55.27,   endLat: 51.50,   endLng: -0.12,   arcAlt: 0.3, color: c() },
@@ -93,7 +92,6 @@ export default function CTA() {
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-[#0A0A0A]"
       style={{
-        minHeight: "100vh",
         borderTop: "1px solid rgba(255,255,255,0.06)",
       }}
     >
@@ -107,7 +105,7 @@ export default function CTA() {
         }}
       />
 
-      <div className="relative flex flex-col md:flex-row min-h-screen">
+      <div className="relative flex flex-col md:flex-row md:min-h-screen">
         {/* ── LEFT: text ──────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}

@@ -48,7 +48,7 @@ const SERVICES = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-32 px-4 bg-[#0A0A0A]">
+    <section id="services" className="py-16 md:py-32 px-4 bg-[#0A0A0A]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
