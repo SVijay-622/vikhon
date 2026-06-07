@@ -35,7 +35,7 @@ export default function About() {
       </LampContainer>
 
       {/* Brand story */}
-      <div className="max-w-4xl mx-auto px-4 pb-20 text-center -mt-32">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 pb-20 text-center -mt-32">
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
