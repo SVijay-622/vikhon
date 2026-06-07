@@ -22,11 +22,12 @@ export default function CustomCursor() {
       dot.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
     };
 
+    let raf: number;
     const animate = () => {
       curX += (mouseX - curX) * 0.12;
       curY += (mouseY - curY) * 0.12;
       cursor.style.transform = `translate(${curX - 20}px, ${curY - 20}px)`;
-      requestAnimationFrame(animate);
+      raf = requestAnimationFrame(animate);
     };
 
     const onMouseDown = () => cursor.classList.add("scale-75");
@@ -45,9 +46,10 @@ export default function CustomCursor() {
       el.addEventListener("mouseleave", removeHover);
     });
 
-    const raf = requestAnimationFrame(animate);
+    raf = requestAnimationFrame(animate);
 
     return () => {
+      cancelAnimationFrame(raf);
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mousedown", onMouseDown);
       document.removeEventListener("mouseup", onMouseUp);
@@ -55,7 +57,6 @@ export default function CustomCursor() {
         el.removeEventListener("mouseenter", addHover);
         el.removeEventListener("mouseleave", removeHover);
       });
-      cancelAnimationFrame(raf);
     };
   }, []);
 

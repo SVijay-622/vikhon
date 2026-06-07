@@ -83,7 +83,7 @@ const Illustration = ({ mouseEntered }: { mouseEntered: boolean }) => {
         const delay = (starIdx % 10) * 0.1;
         const staticDelay = starIdx * 0.01;
         return (
-          <div key={`matrix-col-${starIdx}}`} className="relative flex items-center justify-center">
+          <div key={`matrix-col-${starIdx}`} className="relative flex items-center justify-center">
             <AnimatePresence mode="wait">
               {mouseEntered ? (
                 <motion.div
