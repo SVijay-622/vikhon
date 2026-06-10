@@ -83,6 +83,9 @@ const WORDS = [["We", "work", "with"], ["clients", "worldwide."]];
 export default function CTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const inView = useInView(sectionRef, { once: true, margin: "-100px" });
+  // Only mount Three.js when section scrolls into view — avoids blocking main thread on page load
+  const [globeReady, setGlobeReady] = useState(false);
+  useEffect(() => { if (inView) setGlobeReady(true); }, [inView]);
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -241,7 +244,7 @@ export default function CTA() {
           />
 
           <div className="w-full h-full">
-            <World globeConfig={GLOBE_CONFIG} data={ARCS} />
+            {globeReady && <World globeConfig={GLOBE_CONFIG} data={ARCS} />}
           </div>
         </motion.div>
       </div>
