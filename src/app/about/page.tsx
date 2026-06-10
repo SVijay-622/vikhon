@@ -5,9 +5,7 @@ import Link from 'next/link'
 import { Lightbulb, ShieldCheck, Zap, Heart, ArrowRight, Code2, Palette, Database } from 'lucide-react'
 
 const team = [
-  { name: 'Vijay Andiran', role: 'Lead Web Developer', bio: 'Specialist in React, Next.js, and full-stack JavaScript. Crafts performant web experiences that scale.', skills: ['React', 'Next.js', 'TypeScript', 'Node.js'], initial: 'V', gradient: 'from-blue-900/40 to-indigo-900/40' },
-  { name: 'Arjun Krishnan', role: 'Full Stack Developer', bio: 'Backend architect with expertise in APIs, databases, and cloud infrastructure. Turns ideas into robust systems.', skills: ['Python', 'Django', 'PostgreSQL', 'AWS'], initial: 'A', gradient: 'from-emerald-900/40 to-teal-900/40' },
-  { name: 'Priya Sharma', role: 'Graphic & UI/UX Designer', bio: 'Creative director with a passion for luxury aesthetics. Designs that communicate, captivate, and convert.', skills: ['Figma', 'Illustrator', 'Photoshop', 'After Effects'], initial: 'P', gradient: 'from-rose-900/40 to-pink-900/40' },
+  { name: 'Vijay Andiran', role: 'Founder & Lead Developer', bio: 'Specialist in React, Next.js, and full-stack JavaScript. Crafts performant web experiences that scale.', skills: ['React', 'Next.js', 'TypeScript', 'Node.js'], initial: 'V', gradient: 'from-blue-900/40 to-indigo-900/40' },
 ]
 
 const values = [

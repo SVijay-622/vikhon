@@ -81,9 +81,9 @@ export const InfiniteMovingCards = ({
           animationDuration: "var(--animation-duration)",
         }}
       >
-        {items.map((item, idx) => (
+        {items.map((item) => (
           <li
-            key={idx}
+            key={item.title}
             className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-zinc-800 bg-zinc-900/50 hover:border-indigo-500/50 hover:shadow-[0_0_15px_rgba(99,102,241,0.2)] transition-all duration-300 cursor-default whitespace-nowrap"
           >
             {item.icon && <span className="text-indigo-400">{item.icon}</span>}

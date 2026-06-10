@@ -78,6 +78,7 @@ const JSON_LD = {
     addressRegion: "Tamil Nadu",
     addressCountry: "IN",
   },
+  telephone: "+91-80560-58965",
   email: "hello@vikhon.com",
   sameAs: [
     "https://instagram.com/vikhon.studio",

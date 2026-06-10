@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, MessageCircle, MapPin, ExternalLink, CheckCircle, Send } from 'lucide-react'
+import emailjs from '@emailjs/browser'
 
 const contactCards = [
   { icon: Mail, label: 'Email Us', value: 'hello@vikhon.com', href: 'mailto:hello@vikhon.com', desc: 'For inquiries & project briefs' },
@@ -24,7 +25,9 @@ function Divider() {
   )
 }
 
+// TODO: Set NEXT_PUBLIC_EMAILJS_SERVICE_ID, NEXT_PUBLIC_EMAILJS_TEMPLATE_ID, NEXT_PUBLIC_EMAILJS_PUBLIC_KEY in .env.local
 export default function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null)
   const [form, setForm] = useState({ name: '', email: '', projectType: '', budget: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -32,10 +35,23 @@ export default function ContactPage() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm({ ...form, [e.target.name]: e.target.value })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (!formRef.current) return
     setLoading(true)
-    setTimeout(() => { setLoading(false); setSubmitted(true) }, 1500)
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      )
+      setSubmitted(true)
+    } catch {
+      alert('Something went wrong. Please email us directly at hello@vikhon.com')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -84,7 +100,7 @@ export default function ContactPage() {
                   <h2 className="text-xl font-bold mb-2" style={{ color: 'var(--text-1)' }}>Send a Message</h2>
                   <p className="text-sm mb-8" style={{ color: 'var(--text-5)' }}>Fill out the form and we&rsquo;ll be in touch shortly.</p>
 
-                  <form onSubmit={handleSubmit} className="space-y-5">
+                  <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       {[
                         { name: 'name', label: 'Your Name', type: 'text', placeholder: 'John Davidson' },
@@ -170,11 +186,16 @@ export default function ContactPage() {
               <div className="mt-4 pt-4 border-t border-[#C9A84C]/10">
                 <div className="text-[#C9A84C] text-xs tracking-widest uppercase mb-3">Follow Us</div>
                 <div className="flex gap-2 flex-wrap">
-                  {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((s) => (
-                    <a key={s} href="#"
+                  {[
+                    { label: 'GitHub', href: 'https://github.com/vikhon' },
+                    { label: 'LinkedIn', href: 'https://linkedin.com/company/vikhon' },
+                    { label: 'Instagram', href: 'https://instagram.com/vikhon.studio' },
+                    { label: 'Fiverr', href: 'https://fiverr.com/vijayandiran' },
+                  ].map((s) => (
+                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                       className="border border-[#C9A84C]/15 px-3 py-1.5 rounded text-[11px] tracking-wider hover:text-[#C9A84C] hover:border-[#C9A84C]/40 transition-all duration-200"
                       style={{ color: 'var(--text-4)' }}>
-                      {s}
+                      {s.label}
                     </a>
                   ))}
                 </div>

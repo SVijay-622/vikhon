@@ -133,6 +133,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen((v) => !v)}
               className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px]"
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
             >
               <motion.span
                 className="block w-6 h-[1.5px] bg-white rounded-full origin-center"
