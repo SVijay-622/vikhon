@@ -51,7 +51,6 @@ export default function FloatingButtons() {
               borderRadius: "50%",
               background: "#25D366",
               boxShadow: "0 4px 20px rgba(37,211,102,0.3)",
-              cursor: "none",
             }}
           >
             {/* Pulse ring */}
@@ -80,7 +79,6 @@ export default function FloatingButtons() {
               borderRadius: "50%",
               background: "rgba(255,255,255,0.05)",
               border: "1px solid rgba(255,255,255,0.1)",
-              cursor: "none",
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = "rgba(99,102,241,0.2)";

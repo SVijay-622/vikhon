@@ -196,7 +196,6 @@ export default function CTA() {
             <button
               onClick={() => scrollTo("contact")}
               className="flex items-center gap-2 text-sm font-medium text-white bg-indigo-600 px-6 py-3 rounded-full transition-all duration-300 hover:bg-indigo-500 min-h-[48px]"
-              style={{ cursor: "none" }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.boxShadow = "0 0 25px rgba(99,102,241,0.4)";
               }}
@@ -211,7 +210,6 @@ export default function CTA() {
             <a
               href="mailto:hello@vikhon.com"
               className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors duration-200 min-h-[48px]"
-              style={{ cursor: "none" }}
             >
               hello@vikhon.com
               <ArrowRight size={14} className="opacity-60" />

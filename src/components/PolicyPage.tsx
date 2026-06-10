@@ -32,14 +32,13 @@ export default function PolicyPage({
         <Link
           href="/"
           className="font-black text-xl text-white select-none"
-          style={{ letterSpacing: "0.2em", cursor: "none" }}
+          style={{ letterSpacing: "0.2em" }}
         >
           VIKHON
         </Link>
         <Link
           href="/"
           className="flex items-center gap-2 text-[13px] text-zinc-500 hover:text-white transition-colors duration-200"
-          style={{ cursor: "none" }}
         >
           <ArrowLeft size={14} />
           Back to site
@@ -104,7 +103,6 @@ export default function PolicyPage({
               <Link
                 href="/privacy"
                 className="text-[11px] text-zinc-700 hover:text-white transition-colors"
-                style={{ cursor: "none" }}
               >
                 Privacy
               </Link>
@@ -112,7 +110,6 @@ export default function PolicyPage({
               <Link
                 href="/terms"
                 className="text-[11px] text-zinc-700 hover:text-white transition-colors"
-                style={{ cursor: "none" }}
               >
                 Terms
               </Link>

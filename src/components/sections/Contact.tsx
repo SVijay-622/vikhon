@@ -114,7 +114,6 @@ export default function Contact() {
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
                     className="flex items-center gap-4 group"
-                    style={{ cursor: "none" }}
                   >
                     <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 transition-all duration-300">
                       <Icon size={16} className="text-indigo-400" />
@@ -157,7 +156,6 @@ export default function Contact() {
                       required
                       placeholder="Your name"
                       className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-indigo-500/60 focus:shadow-[0_0_15px_rgba(99,102,241,0.15)] transition-all duration-200"
-                      style={{ cursor: "none" }}
                     />
                   </div>
                   <div>
@@ -170,7 +168,6 @@ export default function Contact() {
                       required
                       placeholder="hello@company.com"
                       className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-indigo-500/60 focus:shadow-[0_0_15px_rgba(99,102,241,0.15)] transition-all duration-200"
-                      style={{ cursor: "none" }}
                     />
                   </div>
                 </div>
@@ -183,7 +180,6 @@ export default function Contact() {
                     <select
                       name="service"
                       className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-300 text-sm focus:outline-none focus:border-indigo-500/60 transition-all duration-200 appearance-none"
-                      style={{ cursor: "none" }}
                     >
                       <option value="">Select service</option>
                       {SERVICE_OPTIONS.map((s) => (
@@ -200,7 +196,6 @@ export default function Contact() {
                     <select
                       name="budget"
                       className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-zinc-300 text-sm focus:outline-none focus:border-indigo-500/60 transition-all duration-200 appearance-none"
-                      style={{ cursor: "none" }}
                     >
                       <option value="">Select budget</option>
                       {BUDGET_OPTIONS.map((b) => (
@@ -222,7 +217,6 @@ export default function Contact() {
                     rows={5}
                     placeholder="Tell us about your project — the more detail, the better..."
                     className="w-full bg-zinc-900/60 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder-zinc-600 text-sm focus:outline-none focus:border-indigo-500/60 focus:shadow-[0_0_15px_rgba(99,102,241,0.15)] transition-all duration-200 resize-none"
-                    style={{ cursor: "none" }}
                   />
                 </div>
 
@@ -230,7 +224,7 @@ export default function Contact() {
                   type="submit"
                   disabled={sending}
                   className="btn-primary w-full text-sm font-semibold flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
-                  style={{ cursor: sending ? "not-allowed" : "none" }}
+                  style={{ cursor: sending ? "not-allowed" : "pointer" }}
                 >
                   <span className="flex items-center gap-2">
                     {sending ? (

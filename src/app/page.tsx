@@ -2,7 +2,6 @@
 
 import { useState, useCallback, useEffect } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
-import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import FloatingButtons from "@/components/FloatingButtons";
 import Footer from "@/components/Footer";
@@ -35,7 +34,6 @@ export default function HomePage() {
   return (
     <>
       <LoadingScreen onComplete={onLoadComplete} />
-      <CustomCursor />
 
       <div
         style={{

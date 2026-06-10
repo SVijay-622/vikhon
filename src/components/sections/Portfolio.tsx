@@ -109,7 +109,6 @@ export default function Portfolio() {
                   ? "bg-indigo-600 text-white shadow-[0_0_20px_rgba(99,102,241,0.4)]"
                   : "bg-zinc-900 text-zinc-400 border border-zinc-800 hover:border-indigo-500/40 hover:text-white"
               }`}
-              style={{ cursor: "none" }}
             >
               {f}
             </button>
@@ -137,7 +136,7 @@ export default function Portfolio() {
                   <CardTag
                     {...liveProps}
                     className="group card-dark overflow-hidden block"
-                    style={{ cursor: "none", textDecoration: "none" }}
+                    style={{ textDecoration: "none" }}
                   >
                     {/* Thumbnail */}
                     <div className={`relative h-64 bg-gradient-to-br ${project.gradient} overflow-hidden`}>

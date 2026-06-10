@@ -145,7 +145,6 @@ export default function Footer() {
             <a
               href="mailto:hello@vikhon.com"
               className="relative group inline-block text-2xl text-zinc-500 hover:text-white transition-colors duration-300"
-              style={{ cursor: "none" }}
             >
               hello@vikhon.com
               <span className="absolute bottom-0 left-0 h-px bg-indigo-500 w-0 group-hover:w-full transition-all duration-500 origin-left" />
@@ -163,7 +162,6 @@ export default function Footer() {
               onClick={() => scrollTo("#contact")}
               className="text-sm font-medium text-white bg-indigo-600 px-8 py-4 rounded-full transition-all duration-300 hover:bg-indigo-500 hover:scale-[1.02] min-h-[52px]"
               style={{
-                cursor: "none",
                 boxShadow: "0 0 30px rgba(99,102,241,0.4)",
               }}
               onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 0 40px rgba(99,102,241,0.5)"; }}
@@ -174,7 +172,6 @@ export default function Footer() {
             <button
               onClick={() => scrollTo("#portfolio")}
               className="text-sm font-medium text-white border border-white/20 px-8 py-4 rounded-full transition-all duration-300 hover:border-white/60 min-h-[52px]"
-              style={{ cursor: "none" }}
             >
               View Our Work
             </button>
@@ -232,7 +229,6 @@ export default function Footer() {
                     style={{
                       background: "rgba(255,255,255,0.04)",
                       border: "1px solid rgba(255,255,255,0.08)",
-                      cursor: "none",
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.background = "rgba(99,102,241,0.1)";
@@ -264,7 +260,6 @@ export default function Footer() {
                     <button
                       onClick={() => scrollTo(link.href)}
                       className="text-sm text-zinc-500 hover:text-white hover:translate-x-0.5 transition-all duration-150 flex min-h-[44px] items-center"
-                      style={{ cursor: "none" }}
                     >
                       {link.label}
                     </button>
@@ -288,7 +283,6 @@ export default function Footer() {
                     <button
                       onClick={() => scrollTo("#services")}
                       className="text-sm text-zinc-500 hover:text-white hover:translate-x-0.5 transition-all duration-150 flex min-h-[44px] items-center"
-                      style={{ cursor: "none" }}
                     >
                       {s}
                     </button>
@@ -311,7 +305,6 @@ export default function Footer() {
                   <a
                     href="mailto:hello@vikhon.com"
                     className="text-sm text-zinc-500 hover:text-indigo-400 transition-colors duration-150 min-h-[44px] flex items-center"
-                    style={{ cursor: "none" }}
                   >
                     hello@vikhon.com
                   </a>
@@ -322,7 +315,6 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-zinc-500 hover:text-indigo-400 transition-colors duration-150 min-h-[44px] flex items-center"
-                    style={{ cursor: "none" }}
                   >
                     +91 80560 58965
                   </a>
@@ -336,7 +328,6 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-zinc-500 hover:text-indigo-400 transition-colors duration-150 min-h-[44px] flex items-center"
-                    style={{ cursor: "none" }}
                   >
                     fiverr.com/vijayandiran
                   </a>
@@ -356,7 +347,6 @@ export default function Footer() {
               <a
                 href="/privacy"
                 className="text-[11px] text-zinc-700 hover:text-white transition-colors duration-150"
-                style={{ cursor: "none" }}
               >
                 Privacy
               </a>
@@ -364,7 +354,6 @@ export default function Footer() {
               <a
                 href="/terms"
                 className="text-[11px] text-zinc-700 hover:text-white transition-colors duration-150"
-                style={{ cursor: "none" }}
               >
                 Terms
               </a>

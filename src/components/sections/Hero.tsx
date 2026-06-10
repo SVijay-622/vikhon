@@ -130,7 +130,6 @@ export default function Hero() {
           <button
             onClick={() => scrollTo("contact")}
             className="btn-primary text-sm font-semibold inline-flex items-center justify-center gap-2 group"
-            style={{ cursor: "none" }}
           >
             <span className="flex items-center gap-2">
               Start Your Project
@@ -140,7 +139,6 @@ export default function Hero() {
           <button
             onClick={() => scrollTo("portfolio")}
             className="btn-secondary text-sm font-semibold inline-flex items-center justify-center gap-2"
-            style={{ cursor: "none" }}
           >
             View Our Work
           </button>
@@ -154,7 +152,6 @@ export default function Hero() {
         transition={{ delay: 1.4 }}
         onClick={() => scrollTo("stats")}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-600 hover:text-zinc-400 transition-colors"
-        style={{ cursor: "none" }}
         aria-label="Scroll down"
       >
         <span className="text-[10px] tracking-[0.5em] uppercase">Scroll</span>

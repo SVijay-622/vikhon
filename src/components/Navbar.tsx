@@ -79,7 +79,6 @@ export default function Navbar() {
             style={{
               letterSpacing: "0.2em",
               transition: "letter-spacing 500ms ease",
-              cursor: "none",
             }}
             onMouseEnter={(e) => { e.currentTarget.style.letterSpacing = "0.35em"; }}
             onMouseLeave={(e) => { e.currentTarget.style.letterSpacing = "0.2em"; }}
@@ -98,7 +97,6 @@ export default function Navbar() {
                   className={`relative flex flex-col items-center text-[13px] font-medium tracking-wide transition-colors duration-200 ${
                     isActive ? "text-white" : "text-zinc-500 hover:text-white"
                   }`}
-                  style={{ cursor: "none" }}
                 >
                   {link.label}
                   <AnimatePresence>
@@ -124,7 +122,6 @@ export default function Navbar() {
             <button
               onClick={() => scrollTo("#contact")}
               className="hidden md:inline-flex items-center text-[13px] font-medium text-zinc-300 border border-white/20 px-5 py-2 rounded-full transition-all duration-300 hover:border-indigo-500 hover:text-white"
-              style={{ cursor: "none" }}
               onMouseEnter={(e) => { e.currentTarget.style.boxShadow = "0 0 15px rgba(99,102,241,0.2)"; }}
               onMouseLeave={(e) => { e.currentTarget.style.boxShadow = "none"; }}
             >
@@ -136,7 +133,6 @@ export default function Navbar() {
               onClick={() => setMobileOpen((v) => !v)}
               className="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-[6px]"
               aria-label="Toggle menu"
-              style={{ cursor: "none" }}
             >
               <motion.span
                 className="block w-6 h-[1.5px] bg-white rounded-full origin-center"
@@ -195,7 +191,6 @@ export default function Navbar() {
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="w-10 h-10 flex items-center justify-center text-zinc-400 hover:text-white transition-colors rounded-full border border-white/10"
-                  style={{ cursor: "none" }}
                   aria-label="Close menu"
                 >
                   <svg
@@ -222,7 +217,6 @@ export default function Navbar() {
                     transition={{ delay: i * 0.05, duration: 0.3 }}
                     onClick={() => scrollTo(link.href)}
                     className="text-white/20 hover:text-white text-4xl font-black py-3 px-6 transition-all duration-200 hover:scale-105"
-                    style={{ cursor: "none" }}
                   >
                     {link.label}
                   </motion.button>
@@ -250,7 +244,6 @@ export default function Navbar() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-[11px] tracking-widest text-zinc-500 hover:text-white transition-colors duration-150"
-                      style={{ cursor: "none" }}
                     >
                       {s.label.toUpperCase()}
                     </a>

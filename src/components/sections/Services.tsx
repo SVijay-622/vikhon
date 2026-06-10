@@ -92,7 +92,6 @@ export default function Services() {
           <button
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             className="btn-secondary inline-flex items-center gap-2 group"
-            style={{ cursor: "none" }}
           >
             Start a Project
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

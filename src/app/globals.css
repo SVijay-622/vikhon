@@ -32,11 +32,6 @@ body {
 /* Text selection */
 ::selection { background: rgba(99, 102, 241, 0.3); color: #fff; }
 
-/* Custom cursor glow — desktop only */
-@media (pointer: fine) {
-  * { cursor: none; }
-}
-
 @layer utilities {
   .indigo-text {
     background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
